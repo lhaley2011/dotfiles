@@ -60,3 +60,6 @@ echo "# remove ls and directory completion highlight color" >> $HOME/.zshrc
 echo "_ls_colors=':ow=01;33'" >> $HOME/.zshrc
 echo 'zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"' >> $HOME/.zshrc
 echo 'LS_COLORS+=$_ls_colors' >> $HOME/.zshrc
+
+# open zsh and exit to run first start tasks
+echo exit | script -qec zsh /dev/null >/dev/null
