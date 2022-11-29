@@ -53,6 +53,10 @@ echo "             import gitconfig                              "
 echo "-----------------------------------------------------------"
 cat $DOTFILES_DIR/.gitconfig >> $HOME/.gitconfig
 
+echo "==========================================================="
+echo "             install flyctl                                "
+echo "-----------------------------------------------------------"
+curl -L https://fly.io/install.sh | sh
 
 # make directly highlighting readable - needs to be after zshrc line
 echo "" >> $HOME/.zshrc
