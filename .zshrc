@@ -121,13 +121,7 @@ alias g='git'
 DEFAULT_USER=$(whoami)
 
 # Default Exports
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/.npm-global/bin:$PATH
-export PATH=$HOME/.dotnet/tools:$PATH
-export FLYCTL_INSTALL=$HOME/.fly
-export PATH=$FLYCTL_INSTALL/bin:$PATH
-export EDITOR=vim
+[ -f ~/.exportsrc ] && source ~/.exportsrc
 
 # History Commands
 setopt INC_APPEND_HISTORY

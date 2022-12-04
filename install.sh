@@ -37,6 +37,10 @@ echo "             cloning powerlevel10k                         "
 echo "-----------------------------------------------------------"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 echo "==========================================================="
+echo "             import exportsrc                              "
+echo "-----------------------------------------------------------"
+cat $DOTFILES_DIR/.exportsrc >> $HOME/.exportsrc
+echo "==========================================================="
 echo "             import zshrc                                  "
 echo "-----------------------------------------------------------"
 cat $DOTFILES_DIR/.zshrc > $HOME/.zshrc
@@ -52,6 +56,11 @@ echo "==========================================================="
 echo "             import gitconfig                              "
 echo "-----------------------------------------------------------"
 cat $DOTFILES_DIR/.gitconfig >> $HOME/.gitconfig
+echo "==========================================================="
+echo "             import npmrc                                  "
+echo "-----------------------------------------------------------"
+mkdir $HOME/.node_modules
+cat $DOTFILES_DIR/.npmrc >> $HOME/.npmrc
 
 echo "==========================================================="
 echo "             install flyctl                                "

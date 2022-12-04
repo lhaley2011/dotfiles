@@ -97,11 +97,9 @@ alias gs='git status'
 alias g='git'
 
 # Default Exports
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/.npm-global/bin:$PATH
-export PATH=$HOME/.dotnet/tools:$PATH
-export EDITOR=vim
+if [ -f ~/.exportsrc ]; then
+    . ~/.exportsrc
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
