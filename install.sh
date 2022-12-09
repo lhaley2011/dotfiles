@@ -63,6 +63,12 @@ mkdir $HOME/.node_modules
 cat $DOTFILES_DIR/.npmrc >> $HOME/.npmrc
 
 echo "==========================================================="
+echo "             import .local scripts                         "
+echo "-----------------------------------------------------------"
+mkdir -p $HOME/.local/bin
+cp -r -n $DOTFILES_DIR/.local $HOME/.local
+
+echo "==========================================================="
 echo "             install flyctl                                "
 echo "-----------------------------------------------------------"
 curl -L https://fly.io/install.sh | sh
