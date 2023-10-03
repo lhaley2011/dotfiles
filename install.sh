@@ -57,6 +57,10 @@ echo "             import gitconfig                              "
 echo "-----------------------------------------------------------"
 cat $DOTFILES_DIR/.gitconfig >> $HOME/.gitconfig
 echo "==========================================================="
+echo "             import terraformrc                            "
+echo "-----------------------------------------------------------"
+cat $DOTFILES_DIR/.terraformrc >> $HOME/.terraformrc
+echo "==========================================================="
 echo "             import npmrc                                  "
 echo "-----------------------------------------------------------"
 mkdir $HOME/.node_modules
@@ -72,6 +76,13 @@ echo "==========================================================="
 echo "             install flyctl                                "
 echo "-----------------------------------------------------------"
 curl -L https://fly.io/install.sh | sh
+
+echo "==========================================================="
+echo "             install terraform                             "
+echo "-----------------------------------------------------------"
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
 
 # make directly highlighting readable - needs to be after zshrc line
 echo "" >> $HOME/.zshrc
