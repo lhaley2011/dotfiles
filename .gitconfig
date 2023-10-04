@@ -32,7 +32,8 @@
   autocorrect = 1
 
 [push]
-	default = simple
+  default = simple
+  autoSetupRemote = true
 
 # [branch "main"]
 #   mergeoptions = --no-edit
