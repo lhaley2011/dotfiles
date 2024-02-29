@@ -116,6 +116,7 @@ alias ll='ls -alF'
 alias grep='grep --color=auto'
 alias gs='git status'
 alias g='git'
+alias tf='terraform'
 
 # Set default user prop
 DEFAULT_USER=$(whoami)

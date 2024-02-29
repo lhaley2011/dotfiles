@@ -9,6 +9,11 @@ echo "-----------------------------------------------------------"
 sudo ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime
 sudo dpkg-reconfigure --frontend noninteractive tzdata
 
+echo "==========================================================="
+echo "         installing custom packages and updating clock     "
+echo "-----------------------------------------------------------"
+sudo apt-get update && sudo apt-get install -y lsb-release
+sudo hwclock --hctosys
 
 echo "==========================================================="
 echo "             installing oh-my-zsh                          "
@@ -80,9 +85,9 @@ curl -L https://fly.io/install.sh | sh
 echo "==========================================================="
 echo "             install terraform                             "
 echo "-----------------------------------------------------------"
-wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install terraform
+sudo apt update && sudo apt install -y terraform
 mkdir -p $HOME/.cache/terraform
 
 # make directly highlighting readable - needs to be after zshrc line
@@ -91,6 +96,9 @@ echo "# remove ls and directory completion highlight color" >> $HOME/.zshrc
 echo "_ls_colors=':ow=01;33'" >> $HOME/.zshrc
 echo 'zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"' >> $HOME/.zshrc
 echo 'LS_COLORS+=$_ls_colors' >> $HOME/.zshrc
+
+sudo apt-get clean all
+sudo apt -y autoremove
 
 # open zsh and exit to run first start tasks
 echo exit | script -qec zsh /dev/null >/dev/null
